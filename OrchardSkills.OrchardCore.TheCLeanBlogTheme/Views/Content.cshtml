@@ -12,7 +12,7 @@
 <article>
     @if (Model.Header != null || Model.Meta != null)
     {
-        <header>
+        <header class="masthead" style="background-image: url('/TheCleanBlogTheme/img/home-bg.jpg'); background-size:cover; height:300px; ">
             @await DisplayAsync(Model.Header)
             @if (Model.Meta != null)
             {
@@ -21,6 +21,7 @@
                 </div>
             }
         </header>
+        <p>@Model.ContentItem.Content</p>
     }
     @await DisplayAsync(Model.Content)
     @if (Model.Footer != null)
