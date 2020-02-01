@@ -38,7 +38,6 @@
         "OrchardCore.Alias",
         "OrchardCore.AdminMenu",
         "OrchardCore.Autoroute",
-        "OrchardCore.Html",
         "OrchardCore.ContentFields",
         "OrchardCore.ContentPreview",
         "OrchardCore.Contents",
@@ -49,7 +48,10 @@
         "OrchardCore.Deployment.Remote",
         "OrchardCore.Feeds",
         "OrchardCore.Flows",
+        "OrchardCore.Forms",
         "OrchardCore.Indexing",
+        "OrchardCore.HomeRoute",
+        "OrchardCore.Html",
         "OrchardCore.Layers",
         "OrchardCore.Lucene",
         "OrchardCore.Lists",
@@ -61,6 +63,8 @@
         "OrchardCore.Title",
         "OrchardCore.Templates",
         "OrchardCore.Widgets",
+        "OrchardCore.Workflows",
+        "OrchardCore.Workflows.Http",
 
         "TheCleanBlogTheme",
         "TheAdmin",
@@ -688,6 +692,14 @@
                 "ContentType": "LinkMenuItem",
                 "ContentItemId": "[js: uuid()]",
                 "LinkMenuItemPart": {
+                  "Name": "Contact",
+                  "Url": "~/contact"
+                }
+              },
+              {
+                "ContentType": "LinkMenuItem",
+                "ContentItemId": "[js: uuid()]",
+                "LinkMenuItemPart": {
                   "Name": "About",
                   "Url": "~/about"
                 }
@@ -702,8 +714,8 @@
           "DisplayText": "Home",
           "Latest": true,
           "Published": true,
-          "Owner": "admin",
-          "Author": "admin",
+          "Owner": "[js: parameters('AdminUsername')]",
+          "Author": "[js: parameters('AdminUsername')]",
           "Page": {},
           "AutoroutePart": {
             "Path": "home",
@@ -721,7 +733,7 @@
                 "PublishedUtc": null,
                 "CreatedUtc": null,
                 "Owner": null,
-                "Author": "admin",
+                "Author": "[js: parameters('AdminUsername')]",
                 "Paragraph": {
                   "Content": {
                     "Html": "<p>Home Page</p>"
@@ -736,6 +748,153 @@
           },
           "TitlePart": {
             "Title": "Home"
+          }
+        },
+        {
+          "ContentItemId": "[js: uuid()]",
+          "ContentType": "Page",
+          "DisplayText": "Contact",
+          "Latest": true,
+          "Published": true,
+          "Owner": "[js: parameters('AdminUsername')]",
+          "Author": "[js: parameters('AdminUsername')]",
+          "Page": {},
+          "AutoroutePart": {
+            "Path": "contact",
+            "SetHomepage": false
+          },
+          "FlowPart": {
+            "Widgets": [
+              {
+                "ContentItemId": "[js: uuid()]",
+                "ContentItemVersionId": null,
+                "ContentType": "Form",
+                "DisplayText": null,
+                "Latest": false,
+                "Published": false,
+                "PublishedUtc": null,
+                "CreatedUtc": null,
+                "Owner": null,
+                "Author": "[js: parameters('AdminUsername')]",
+                "TitlePart": {
+                  "Title": null
+                },
+                "FormPart": {
+                  "Action": null,
+                  "Method": "POST",
+                  "WorkflowTypeId": null
+                },
+                "FlowPart": {
+                  "Widgets": [
+                    {
+                      "ContentItemId": "[js: uuid()]",
+                      "ContentItemVersionId": null,
+                      "ContentType": "Input",
+                      "DisplayText": "Name",
+                      "Latest": false,
+                      "Published": false,
+                      "PublishedUtc": null,
+                      "CreatedUtc": null,
+                      "Owner": null,
+                      "Author": "[js: parameters('AdminUsername')]",
+                      "FormInputElementPart": {
+                        "Name": "Name"
+                      },
+                      "FormElementPart": {
+                        "Id": null
+                      },
+                      "InputPart": {
+                        "Type": "text",
+                        "DefaultValue": null,
+                        "Placeholder": "Enter Name"
+                      },
+                      "FlowMetadata": {
+                        "Alignment": 3,
+                        "Size": 100
+                      }
+                    },
+                    {
+                      "ContentItemId": "[js: uuid()]",
+                      "ContentItemVersionId": null,
+                      "ContentType": "Input",
+                      "DisplayText": "EMail",
+                      "Latest": false,
+                      "Published": false,
+                      "PublishedUtc": null,
+                      "CreatedUtc": null,
+                      "Owner": null,
+                      "Author": "[js: parameters('AdminUsername')]",
+                      "FormInputElementPart": {
+                        "Name": "EMail"
+                      },
+                      "FormElementPart": {
+                        "Id": null
+                      },
+                      "InputPart": {
+                        "Type": "email",
+                        "DefaultValue": null,
+                        "Placeholder": "Enter EMail"
+                      },
+                      "FlowMetadata": {
+                        "Alignment": 3,
+                        "Size": 100
+                      }
+                    },
+                    {
+                      "ContentItemId": "[js: uuid()]",
+                      "ContentItemVersionId": null,
+                      "ContentType": "Input",
+                      "DisplayText": "Message",
+                      "Latest": false,
+                      "Published": false,
+                      "PublishedUtc": null,
+                      "CreatedUtc": null,
+                      "Owner": null,
+                      "Author": "[js: parameters('AdminUsername')]",
+                      "FormInputElementPart": {
+                        "Name": "Message"
+                      },
+                      "FormElementPart": {
+                        "Id": null
+                      },
+                      "InputPart": {
+                        "Type": "text",
+                        "DefaultValue": null,
+                        "Placeholder": "Enter Message"
+                      },
+                      "FlowMetadata": {
+                        "Alignment": 3,
+                        "Size": 100
+                      }
+                    },
+                    {
+                      "ContentItemId": "[js: uuid()]",
+                      "ContentItemVersionId": null,
+                      "ContentType": "ValidationSummary",
+                      "DisplayText": null,
+                      "Latest": false,
+                      "Published": false,
+                      "PublishedUtc": null,
+                      "CreatedUtc": null,
+                      "Owner": null,
+                      "Author": "[js: parameters('AdminUsername')]",
+                      "ValidationSummaryPart": {},
+                      "FlowMetadata": {
+                        "Alignment": 3,
+                        "Size": 100
+                      }
+                    }
+                  ]
+                },
+                "FlowMetadata": {
+                  "Alignment": 3,
+                  "Size": 100
+                }
+              }
+            ]
+          },
+          "TitlePart": {
+            "Title": "Contact"
           }
         },
         {
@@ -863,6 +1022,17 @@
         }
       ]
     },
+    {
+      "name": "Settings",
+      "LayerSettings": {
+        "Zones": [
+          "Header",
+          "Content",
+          "Footer"
+        ]
+      }
+    },
+
     {
       "name": "queries",
       "Queries": [
