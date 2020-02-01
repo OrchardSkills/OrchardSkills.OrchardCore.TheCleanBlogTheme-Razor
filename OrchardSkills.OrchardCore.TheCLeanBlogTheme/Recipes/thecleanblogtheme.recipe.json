@@ -1023,6 +1023,27 @@
       ]
     },
     {
+      "name": "media",
+      "Files": [
+        {
+          "TargetPath": "background/about-bg.jpg",
+          "SourcePath": "../wwwroot/img/about-bg.jpg"
+        },
+        {
+          "TargetPath": "background/blog-bg.jpg",
+          "SourcePath": "../wwwroot/img/blog-bg.jpg"
+        },
+        {
+          "TargetPath": "background/contact-bg.jpg",
+          "SourcePath": "../wwwroot/img/contact-bg.jpg"
+        },
+        {
+          "TargetPath": "background/home-bg.jpg",
+          "SourcePath": "../wwwroot/img/home-bg.jpg"
+        }
+      ]
+    },
+    {
       "name": "Settings",
       "LayerSettings": {
         "Zones": [
