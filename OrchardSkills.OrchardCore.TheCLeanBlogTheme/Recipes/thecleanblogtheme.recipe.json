@@ -621,7 +621,48 @@
               }
             }
           ]
+        },
+        {
+          "Name": "Page",
+          "Settings": {},
+          "ContentPartFieldDefinitionRecords": [
+            {
+              "FieldName": "MediaField",
+              "Name": "BackgroundImage",
+              "Settings": {
+                "ContentPartFieldSettings": {
+                  "DisplayName": "Background Image"
+                },
+                "ContentIndexSettings": {},
+                "MediaFieldSettings": {
+                  "Required": true,
+                  "Multiple": false
+                }
+              }
+            }
+          ]
+        },
+        {
+          "Name": "Blog",
+          "Settings": {},
+          "ContentPartFieldDefinitionRecords": [
+            {
+              "FieldName": "MediaField",
+              "Name": "BackgroundImage",
+              "Settings": {
+                "ContentPartFieldSettings": {
+                  "DisplayName": "Background Image"
+                },
+                "ContentIndexSettings": {},
+                "MediaFieldSettings": {
+                  "Required": true,
+                  "Multiple": false
+                }
+              }
+            }
+          ]
         }
+
       ]
     },
     {
@@ -716,7 +757,13 @@
           "Published": true,
           "Owner": "[js: parameters('AdminUsername')]",
           "Author": "[js: parameters('AdminUsername')]",
-          "Page": {},
+          "Page": {
+            "BackgroundImage": {
+              "Paths": [
+                "background/home-bg.jpg"
+              ]
+            }
+          },
           "AutoroutePart": {
             "Path": "home",
             "SetHomepage": true
@@ -758,7 +805,13 @@
           "Published": true,
           "Owner": "[js: parameters('AdminUsername')]",
           "Author": "[js: parameters('AdminUsername')]",
-          "Page": {},
+          "Page": {
+            "BackgroundImage": {
+              "Paths": [
+                "background/contact-bg.jpg"
+              ]
+            }
+          },
           "AutoroutePart": {
             "Path": "contact",
             "SetHomepage": false
@@ -905,7 +958,13 @@
           "Published": true,
           "Owner": "[js: parameters('AdminUsername')]",
           "Author": "[js: parameters('AdminUsername')]",
-          "Page": {},
+          "Page": {
+            "BackgroundImage": {
+              "Paths": [
+                "background/about-bg.jpg"
+              ]
+            }
+          },
           "AutoroutePart": {
             "Path": "about",
             "SetHomepage": false
@@ -956,7 +1015,14 @@
           "AutoroutePart": {
             "Path": "blog"
           },
-          "ListPart": {}
+          "ListPart": {},
+          "Blog": {
+            "BackgroundImage": {
+              "Paths": [
+                "background/blog-bg.jpg"
+              ]
+            }
+          }
         },
         {
           "ContentType": "BlogPost",
