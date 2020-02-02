@@ -1,4 +1,5 @@
 @using OrchardCore.Mvc.Utilities;
+@using Newtonsoft.Json;
 
 @{
     Model.Classes.Add("content-item");
@@ -9,10 +10,60 @@
     var tag = Tag(Model, "article");
 }
 
+@{
+    string backgroundURL = "/TheCleanBlogTheme/img/home-bg.jpg";
+
+    string content = JsonConvert.SerializeObject(Model.ContentItem.Content);
+
+    string search = "BackgroundImage";
+
+    int los = search.Length;
+
+    int bgi = content.IndexOf(search);
+
+    if (bgi != -1)
+    {
+        int eod = content.IndexOf(",", bgi);
+
+        if (eod == -1) eod = content.Length;
+
+        int len = eod - bgi - los;
+
+        string value = content.Substring(bgi + los, len);
+
+        search = "Paths\":[\"";
+
+        los = search.Length;
+
+        int sop = value.IndexOf(search);
+
+        if (sop != -1)
+        {
+            int eop = value.IndexOf("\"]", sop);
+
+            if (eop != -1)
+            {
+                len = eop - sop - los;
+                backgroundURL = "/Media/" + value.Substring(sop + los, len);
+            }
+        }
+
+    }
+}
+
+<style>
+    header {
+        background: url(@backgroundURL) no-repeat center center !important;
+        width: 100%;
+        padding-top: 20%;
+        padding-bottom: 20%;
+    }
+</style>
+
 <article>
     @if (Model.Header != null || Model.Meta != null)
     {
-        <header class="masthead" style="background-image: url('/TheCleanBlogTheme/img/home-bg.jpg'); background-size:cover; height:300px; ">
+        <header class="masthead">
             @await DisplayAsync(Model.Header)
             @if (Model.Meta != null)
             {
@@ -21,7 +72,7 @@
                 </div>
             }
         </header>
-        <p>@Model.ContentItem.Content</p>
+        // <p>@Model.ContentItem.Content</p>
     }
     @await DisplayAsync(Model.Content)
     @if (Model.Footer != null)
