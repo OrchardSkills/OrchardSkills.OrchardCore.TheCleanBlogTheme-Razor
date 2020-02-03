@@ -21,6 +21,7 @@ namespace OrchardCMSnet.OrchardCore.WebHosting
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseOrchardCore();
 

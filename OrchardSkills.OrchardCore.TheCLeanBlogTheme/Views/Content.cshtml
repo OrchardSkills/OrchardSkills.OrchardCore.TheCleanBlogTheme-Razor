@@ -27,9 +27,9 @@
 
         if (eod == -1) eod = content.Length;
 
-        int len = eod - bgi - los;
+        int len = eod - bgi - los - 2;
 
-        string value = content.Substring(bgi + los, len);
+        string value = content.Substring(bgi + los + 2, len);
 
         search = "Paths\":[\"";
 
@@ -39,7 +39,9 @@
 
         if (sop != -1)
         {
-            int eop = value.IndexOf("\"]", sop);
+            search = "\"]";
+
+            int eop = value.IndexOf(search, sop + los);
 
             if (eop != -1)
             {

@@ -1,0 +1,16 @@
+{
+  "MediaField": [
+    {
+      "displayType": "Detail",
+      "differentiator": "BackgroundImage",
+      "contentType": [ "Blog" ],
+      "place": "-"
+    },
+    {
+      "displayType": "Detail",
+      "differentiator": "BackgroundImage",
+      "contentType": [ "Page" ],
+      "place": "-"
+    }
+  ]
+}
