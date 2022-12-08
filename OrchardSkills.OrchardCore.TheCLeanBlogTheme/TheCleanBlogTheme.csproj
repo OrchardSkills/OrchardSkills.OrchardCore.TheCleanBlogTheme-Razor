@@ -10,7 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
     <PackageReference Include="OrchardCore.Admin.Abstractions" Version="1.0.0-rc1-11798" />
     <PackageReference Include="OrchardCore.Email.Abstractions" Version="1.0.0-rc1-11798" />
     <PackageReference Include="OrchardCore.DisplayManagement" Version="1.0.0-rc1-11712" />
